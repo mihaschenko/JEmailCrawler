@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.ArrayList;
-//import java.util.Arrays;
 import java.net.URL;
 
 class JSoup
@@ -27,11 +26,10 @@ class JSoup
 		
 		ArrayList<String> listOfURL = new ArrayList<String>();
 		ArrayList<String> listOfEmail = new ArrayList<String>();
-		//ArrayList<String> emailAddresses = new ArrayList<String>();
 		listOfURL.add(givenURL);
 		
 		// main process/crawler loop
-		for(int i = 0; i < listOfURL.size() && i < 20; i++)
+		for(int i = 0; i < listOfURL.size(); i++)
 		{
 			givenURL = listOfURL.get(i);
 				System.out.print("Connect to " + givenURL + " ");
@@ -45,10 +43,7 @@ class JSoup
 			while(matcher.find())
 			{
 				if(!listOfEmail.contains(matcher.group()))
-				{
 					listOfEmail.add(matcher.group());
-					//emailAddresses.add(givenURL);
-				}
 			}
 			
 			// search and save URLs without duplication
