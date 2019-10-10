@@ -31,7 +31,6 @@ class JSoup
 		listOfURL.add(givenURL);
 		
 		// main process/crawler loop
-		// основной процес
 		for(int i = 0; i < listOfURL.size() && i < 20; i++)
 		{
 			givenURL = listOfURL.get(i);
@@ -40,7 +39,6 @@ class JSoup
 			Document doc = Jsoup.connect(givenURL).get();
 			Elements scrapedUrls = doc.select("a[href]");
 			
-			// поиск и сохранение емайл и их местонахождение
 			// search and save emails and their location
 			String siteText = doc.text();
 			Matcher matcher = pattern.matcher(siteText);
@@ -54,7 +52,6 @@ class JSoup
 			}
 			
 			// search and save URLs without duplication
-			// поиск и сохранение URL без дублирования
 			for(Element tag_a : scrapedUrls)
 			{
 				String str = tag_a.attr("abs:href");
