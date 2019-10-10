@@ -15,7 +15,7 @@ class JSoup
 	public static void main(String[] args) throws IOException
 	{
 		String givenURL = "https://www.xing.com/companies";
-		String authority; // domain name
+		String authority; // host name
 		{
 			URL mainURL = new URL(givenURL);
 			authority = mainURL.getAuthority();
