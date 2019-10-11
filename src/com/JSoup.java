@@ -16,6 +16,7 @@ class JSoup
 	{
 		String givenURL = "https://www.xing.com/companies";
 		String authority; // host name
+		
 		{
 			URL mainURL = new URL(givenURL);
 			authority = mainURL.getAuthority();
@@ -35,7 +36,6 @@ class JSoup
 				System.out.print("Connect to " + givenURL + " ");
 				
 			Document doc = Jsoup.connect(givenURL).get();
-			Elements scrapedUrls = doc.select("a[href]");
 			
 			// search and save emails and their location
 			String siteText = doc.text();
@@ -47,6 +47,7 @@ class JSoup
 			}
 			
 			// search and save URLs without duplication
+			Elements scrapedUrls = doc.select("a[href]");
 			for(Element tag_a : scrapedUrls)
 			{
 				String str = tag_a.attr("abs:href");
